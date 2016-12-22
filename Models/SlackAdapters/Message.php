@@ -61,6 +61,7 @@ class Message implements MessageInterface
             'parse' => ''
         ];
         $slackClient = new SlackClient($config);
+        $slackClient->setDebug(false);
         $chat = $slackClient->chat($channel);
         return $chat->send($message);
     }
