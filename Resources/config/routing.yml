@@ -1,0 +1,3 @@
+part_fire_slack_homepage:
+    path:     /
+    defaults: { _controller: PartFireSlackBundle:Default:index }

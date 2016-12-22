@@ -1,0 +1,8 @@
+services:
+  part_fire_slack.models_slack_adapters.message:
+      class: PartFire\SlackBundle\Models\SlackAdapters\Message
+      arguments: ['%slack_token%', '%%slack_team%%', '%slack_username%']
+
+  part_fire_slack_service:
+      class: PartFire\SlackBundle\Services\SlackService
+      arguments: ['@part_fire_slack.models_slack_adapters.message']

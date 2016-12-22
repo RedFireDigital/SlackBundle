@@ -1,0 +1,45 @@
+{
+    "name": "partfire/slack-bundle",
+    "description": "A set of Symfony services for use in your project to integrate with Slack API faster.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carl Owens",
+            "email": "carl@partfire.co.uk",
+            "homepage": "https://partfire.co.uk"
+        },
+        {
+            "name": "Graham Owens",
+            "email": "gra@partfire.co.uk",
+            "homepage": "https://partfire.co.uk"
+        },
+        {
+            "name": "PartFire Ltd",
+            "homepage": "https://github.com/PartFire"
+        }
+    ],
+    "require": {
+        "php": "^5.5.9 || ^7.0",
+        "symfony/framework-bundle": "^2.7 || ^3.0",
+        "threadmeup/slack-sdk": "^1.1"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PartFire\\SlackBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/",
+            "spec"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PartFire\\SlackBundle\\Tests\\": "Tests/",
+            "PartFire\\SlackBundle\\spec\\": "spec/"
+        }
+    }
+}
