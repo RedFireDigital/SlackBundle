@@ -34,9 +34,7 @@ Also add to your `app/AppKernel.php` file:
 
 ### Send a Message from a controller
 
-```php
-    $userService = $this->container->get('part_fire_mango_pay.services.user');
-    
+```php    
     $this->container->get('part_fire_slack_service')->sendMessage(
         "This is an example message",
         'some-channel-name',
