@@ -1,6 +1,6 @@
 # Slack Bundle for Symfony
 
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://packagist.org/packages/partfire/mangopay-bundle)
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://packagist.org/packages/partfire/slack-bundle)
 [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/partfire)
 
 A set of Symfony services for use in your project to ease integration with Slack. 
