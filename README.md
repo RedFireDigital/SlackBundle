@@ -20,9 +20,12 @@ Add your details to your `app/config/parameters.yml` file.  For example:
     slack_token: 123456789XXXXXXX
     slack_username: My-Website
     slack_team: My-Team
+    slack_testing_channel_name: my-tests-channel
 ```
 
-slack_username refers to the name that will appear in the channel.  Slack team is the team name when you created your team via Slack.
+* slack_username: refers to the name that will appear in the channel.  
+* slack_team: is the team name when you created your team via Slack.
+* slack_testing_channel_name refers to the only channel which all messages are sent when the syfony enfironment is not equal to `prod`.  This is to allow us to not pollute the other channels for the production environment.
 
 Also add to your `app/AppKernel.php` file:
 

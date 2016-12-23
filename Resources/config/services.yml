@@ -3,6 +3,10 @@ services:
       class: PartFire\SlackBundle\Models\SlackAdapters\Message
       arguments: ['%slack_token%', '%%slack_team%%', '%slack_username%']
 
+  part_fire_slack.models_channel_picker:
+      class: PartFire\SlackBundle\Models\ChannelPicker
+      arguments: ['%kernel.environment%', '%slack_testing_channel_name%']
+
   part_fire_slack_service:
       class: PartFire\SlackBundle\Services\SlackService
-      arguments: ['@part_fire_slack.models_slack_adapters.message']
+      arguments: ['@part_fire_slack.models_slack_adapters.message', '@part_fire_slack.models_channel_picker']
