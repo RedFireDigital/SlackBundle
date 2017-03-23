@@ -12,8 +12,12 @@
 
 namespace PartFire\SlackBundle\Services;
 
+use PartFire\SlackBundle\Entity\Repository\SlackMessageRepository;
+use PartFire\SlackBundle\Entity\Repository\SlackRepositoryFactory;
+use PartFire\SlackBundle\Entity\SlackMessage;
 use PartFire\SlackBundle\Models\ChannelPicker;
 use PartFire\SlackBundle\Models\MessageInterface;
+
 
 class SlackService
 {
@@ -27,15 +31,18 @@ class SlackService
      */
     protected $channelPicker;
 
-    /**
-     * SlackService constructor.
-     * @param MessageInterface $message
-     * @param ChannelPicker $channelPicker
-     */
-    public function __construct(MessageInterface $message, ChannelPicker $channelPicker)
+    private $slackMessageRepository;
+
+
+    public function __construct(
+        MessageInterface $message,
+        ChannelPicker $channelPicker,
+        SlackRepositoryFactory $slackMessageRepository
+    )
     {
         $this->message = $message;
         $this->channelPicker = $channelPicker;
+        $this->slackMessageRepository = $slackMessageRepository;
     }
 
     /**
@@ -47,6 +54,29 @@ class SlackService
     public function sendMessage($message, $channel = '#random', $icon = ':speech_balloon:')
     {
         $channel = $this->channelPicker->getChannel($channel);
-        return $this->message->send($message, $channel, $icon);
+
+        $newSlackMessage = new SlackMessage();
+        $newSlackMessage->setChannel($channel);
+        $newSlackMessage->setIcon($icon);
+        $newSlackMessage->setMessage($message);
+
+        $this->saveSlackMessage($newSlackMessage);
+    }
+
+    public function sendMessageToSlack(SlackMessage $slackMessage)
+    {
+        try {
+            $this->message->send($slackMessage->getMessage(), $slackMessage->getChannel(), $slackMessage->getIcon());
+            $slackMessage->setHasSent(true);
+        } catch (\Exception $e) {
+            $slackMessage->setResponse($e->getMessage());
+        }
+        $slackMessage->setActioned(true);
+        $this->saveSlackMessage($slackMessage);
+    }
+
+    private function saveSlackMessage(SlackMessage $slackMessage) : SlackMessage
+    {
+        return $this->slackMessageRepository->saveAndGetEntity($slackMessage);
     }
 }

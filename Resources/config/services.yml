@@ -1,4 +1,8 @@
 services:
+  part_fire_slack.factory_repo:
+      class: PartFire\SlackBundle\Entity\Repository\SlackRepositoryFactory
+      arguments: ['@doctrine.orm.default_entity_manager']
+
   part_fire_slack.models_slack_adapters.message:
       class: PartFire\SlackBundle\Models\SlackAdapters\Message
       arguments: ['%slack_token%', '%%slack_team%%', '%slack_username%']
@@ -9,4 +13,4 @@ services:
 
   part_fire_slack_service:
       class: PartFire\SlackBundle\Services\SlackService
-      arguments: ['@part_fire_slack.models_slack_adapters.message', '@part_fire_slack.models_channel_picker']
+      arguments: ['@part_fire_slack.models_slack_adapters.message', '@part_fire_slack.models_channel_picker', '@part_fire_slack.factory_repo']
