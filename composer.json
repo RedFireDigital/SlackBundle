@@ -42,7 +42,6 @@
             "PartFire\\SlackBundle\\spec\\": "spec/"
         }
     },
-    "minimum-stability": "stable",
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
