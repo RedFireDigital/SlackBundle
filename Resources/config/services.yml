@@ -19,4 +19,4 @@ services:
       class: PartFire\SlackBundle\Command\CheckAndSendMessagesCommand
       tags:
           - { name: console.command, command: 'partfire:slack:check-and-send' }
-      arguments: ['@partfire_common.output_console', '', '@part_fire_slack.factory_repo', '@part_fire_slack_service']
+      arguments: ['@partfire_common.output_console', '@part_fire_slack.factory_repo', '@part_fire_slack_service']
