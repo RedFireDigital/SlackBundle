@@ -22,6 +22,6 @@ class SlackMessageRepository extends RepositoryAbstract implements RepositoryInt
 {
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
-        return $this->findBy($criteria, $orderBy, $limit, $offset);
+        return parent::findBy($criteria, $orderBy, $limit, $offset);
     }
 }
