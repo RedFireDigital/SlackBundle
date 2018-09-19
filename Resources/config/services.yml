@@ -14,3 +14,9 @@ services:
   part_fire_slack_service:
       class: PartFire\SlackBundle\Services\SlackService
       arguments: ['@part_fire_slack.models_slack_adapters.message', '@part_fire_slack.models_channel_picker', '@part_fire_slack.factory_repo']
+
+  partfire.command.slack_check_and_send:
+      class: PartFire\SlackBundle\Command\CheckAndSendMessagesCommand
+      tags:
+          - { name: console.command, command: 'partfire:slack:check-and-send' }
+      arguments: ['@partfire_common.output_console', '', '@part_fire_slack.factory_repo', '@part_fire_slack_service']

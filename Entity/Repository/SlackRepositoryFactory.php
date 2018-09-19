@@ -17,6 +17,7 @@ namespace PartFire\SlackBundle\Entity\Repository;
 
 use PartFire\CommonBundle\Entity\Repository\Repository;
 use PartFire\CommonBundle\Entity\Repository\RepositoryBaseFactory;
+use PartFire\SlackBundle\Models\RepositoryInterface;
 
 class SlackRepositoryFactory extends RepositoryBaseFactory implements Repository
 {

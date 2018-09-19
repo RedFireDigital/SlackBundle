@@ -16,9 +16,12 @@
 namespace PartFire\SlackBundle\Entity\Repository;
 
 use PartFire\CommonBundle\Entity\Repository\RepositoryAbstract;
+use PartFire\SlackBundle\Models\RepositoryInterface;
 
-
-class SlackMessageRepository extends RepositoryAbstract
+class SlackMessageRepository extends RepositoryAbstract implements RepositoryInterface
 {
-
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    {
+        return $this->findBy($criteria, $orderBy, $limit, $offset);
+    }
 }
