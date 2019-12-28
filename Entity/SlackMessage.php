@@ -19,8 +19,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\MappedSuperclass;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
-use JMS\Serializer\Annotation\ExclusionPolicy;
-use JMS\Serializer\Annotation\Expose;
 use PartFire\CommonBundle\Entity\CommonBaseEntity;
 
 /**
@@ -28,7 +26,6 @@ use PartFire\CommonBundle\Entity\CommonBaseEntity;
  * @ORM\Table(name="partfire_slack_messsages", indexes={
  *  @ORM\Index(name="index_enabled", columns={"enabled", "deleted", "has_sent"}) })
  * @ORM\Entity(repositoryClass="PartFire\SlackBundle\Entity\Repository\SlackMessageRepository")
- * @ExclusionPolicy("all")
  */
 
 class SlackMessage extends CommonBaseEntity
