@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3585b50b6a278a49e51e02468ce5010b",
+    "content-hash": "6c85edba16f7870a5ac11f31fcf4c109",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -870,19 +870,19 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/PartFire/CommonBundle.git",
+                "url": "https://github.com/RedFireDigital/CommonBundle.git",
                 "reference": "8d5c5bba0854176a4a674869e5894215f5215386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PartFire/CommonBundle/zipball/8d5c5bba0854176a4a674869e5894215f5215386",
+                "url": "https://api.github.com/repos/RedFireDigital/CommonBundle/zipball/8d5c5bba0854176a4a674869e5894215f5215386",
                 "reference": "8d5c5bba0854176a4a674869e5894215f5215386",
                 "shasum": ""
             },
             "require": {
                 "gedmo/doctrine-extensions": "^2.4",
                 "php": "^5.5.9 || ^7.0",
-                "symfony/framework-bundle": "^2.7 || ^3.0 || ^4.0"
+                "symfony/framework-bundle": "^2.7 || ^3.0 || ^4.0 || ^5.1"
             },
             "require-dev": {
                 "phpspec/phpspec": "~2.0"
@@ -929,8 +929,8 @@
             ],
             "description": "A collection of Base and Abstract classes etc used to speed up development.",
             "support": {
-                "source": "https://github.com/PartFire/CommonBundle/tree/master",
-                "issues": "https://github.com/PartFire/CommonBundle/issues"
+                "source": "https://github.com/RedFireDigital/CommonBundle/tree/master",
+                "issues": "https://github.com/RedFireDigital/CommonBundle/issues"
             },
             "time": "2018-08-29T15:17:13+00:00"
         },
@@ -1382,16 +1382,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v4.1.4",
+            "version": "v4.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "bae4983003c9d451e278504d7d9b9d7fc1846873"
+                "reference": "919a245e0642afa353a333d8bf3352320af85969"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/bae4983003c9d451e278504d7d9b9d7fc1846873",
-                "reference": "bae4983003c9d451e278504d7d9b9d7fc1846873",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/919a245e0642afa353a333d8bf3352320af85969",
+                "reference": "919a245e0642afa353a333d8bf3352320af85969",
                 "shasum": ""
             },
             "require": {
@@ -1449,7 +1449,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-08-08T11:48:58+00:00"
+            "time": "2019-04-16T11:21:55+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2909,7 +2909,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^5.5.9 || ^7.0"
+        "php": "^7.1"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
