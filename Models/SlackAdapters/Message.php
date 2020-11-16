@@ -12,8 +12,10 @@
 
 namespace PartFire\SlackBundle\Models\SlackAdapters;
 
+use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use PartFire\SlackBundle\Models\MessageInterface;
-use ThreadMeUp\Slack\Client as SlackClient;
+use Nexy\Slack\Client as SlackClient;
 
 class Message implements MessageInterface
 {
@@ -60,9 +62,20 @@ class Message implements MessageInterface
             'icon' => $icon,
             'parse' => ''
         ];
-        $slackClient = new SlackClient($config);
-        $slackClient->setDebug(false);
-        $chat = $slackClient->chat($channel);
-        return $chat->send($message);
+
+        $slackClient = new SlackClient(
+            Psr18ClientDiscovery::find(),
+            Psr17FactoryDiscovery::findRequestFactory(),
+            Psr17FactoryDiscovery::findStreamFactory(),
+            $this->slackUsername,
+            [
+                'username' => $this->slackUsername,
+                'channel' => $channel,
+                'link_names' => true
+            ]
+        );
+
+        $slackClient->send($message);
+        return true;
     }
 }
