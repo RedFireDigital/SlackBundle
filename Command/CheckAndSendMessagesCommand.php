@@ -81,6 +81,7 @@ class CheckAndSendMessagesCommand extends Command
                 }
             }
         }
+        return 0;
     }
 
     private function showTitle($title)
